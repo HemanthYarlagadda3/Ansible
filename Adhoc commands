@@ -1,0 +1,5 @@
+ansible - i inventory file -m (#module) hostlist
+
+example:- 
+  ansible -i inventory.ini -m ping all
+
