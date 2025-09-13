@@ -3,3 +3,14 @@ ansible - i inventory file -m (#module) hostlist
 example:- 
   ansible -i inventory.ini -m ping all
 
+Creating fiile in manage nodes
+   ansible -i inventory.ini -m shell -a "touch test" all
+
+Creating directory in manage nodes
+   ansible -i inventory.ini -m shell -a "mkdir Testing" all
+
+Creating directory in particular path in manage nodes
+  ansible all -i inventory.ini -m shell -a "cd Testing && mkdir AAA"
+
+Creating file in particular path in manage nodes
+    ansible -i inventory.ini -m shell -a "cd Testing/AAA && touch firstfile" all
