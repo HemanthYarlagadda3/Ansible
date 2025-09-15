@@ -1,0 +1,24 @@
+---
+- name: Update web servers
+  hosts: all
+  become : yes
+
+  tasks:
+    - name: Use the dnf package manager to install httpd
+      ansible.builtin.package:
+        name: httpd
+        state: present
+        use: dnf
+
+    - name: Start service httpd, if not started
+      ansible.builtin.service:
+        name: httpd
+        state: started
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/
+        owner: root
+        group: root
+        mode: '0644'
