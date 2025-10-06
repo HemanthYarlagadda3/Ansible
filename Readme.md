@@ -7,3 +7,19 @@ Masternodes can be autorized to control by using password less authentication pe
 
 
   For simple executions you can use Adhoc commands
+...........................................................................
+
+ for creating executing playbooks
+
+    ansible-playbooks -i inventory.ini playbook-name
+
+  ...............................................................
+
+  for creating roles
+
+     ansible-galaxy role init rolename
+............................................................
+for using any ansible files from galaxy
+
+   example
+    ansible-galaxy role install bsmeding.docker
