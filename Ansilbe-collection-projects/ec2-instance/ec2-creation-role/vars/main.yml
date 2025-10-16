@@ -1,0 +1,4 @@
+---
+# vars file for ec2-creation-role
+instance_type : t3.micro
+region : eu-north-1

@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  connection: local
+  roles :
+    - s3-bucket-creation-role
+

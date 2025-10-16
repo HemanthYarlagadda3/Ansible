@@ -1,0 +1,11 @@
+---
+# tasks file for s3-bucket-creation-role
+- name: Create an S3 bucket
+  amazon.aws.s3_bucket:
+    name: "{{ bucket_name }}"
+    state: present
+    region: "{{ region }}"
+    aws_access_key: "{{ ec2_access_key }}"
+    aws_secret_key: "{{ ec2_secret_key }}"
+    acl: private
+

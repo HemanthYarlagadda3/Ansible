@@ -1,0 +1,4 @@
+---
+# vars file for s3-bucket-creation-role
+bucket_name : hemanth-s3-ansible-test-bucket
+region : eu-north-1
