@@ -27,9 +27,12 @@ for using any ansible files from galaxy
    --------- Ansible_Collections------------------------------
    use ansible galaxy for doenloading any collections
 
-   for aws - ansible-galaxy collection install amazon.aws
+   for aws - 
+   
+    ansible-galaxy collection install amazon.aws
 
-   prerequests - pip install boto3
+   prerequests -  
+     pip install boto3
 
    we need to setup vault integration for the aws creaditials
 
