@@ -23,3 +23,29 @@ for using any ansible files from galaxy
 
    example
     ansible-galaxy role install bsmeding.docker
+
+   --------- Ansible_Collections------------------------------
+   use ansible galaxy for doenloading any collections
+
+   for aws - ansible-galaxy collection install amazon.aws
+
+   prerequests - pip install boto3
+
+   we need to setup vault integration for the aws creaditials
+
+   for vault password 
+
+    openssl rand -base64 2048 > vault.pass
+
+  for craeting vault
+
+    ansible-vault create group_vars/all/pass.yml --vault-password-file vault.pass
+
+   to see the contents in vault 
+
+   ansible-vault view group_vars/all/pass.yml --vault-password-file vault.pass
+
+   executing ansible collection playbook with vault set up
+
+    ansible-playbook playbbokname --vault-password-file vault.pass
+
