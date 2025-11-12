@@ -1,0 +1,10 @@
+- name: Shut down target nodes
+  hosts: all
+  become: yes  # Required for shutdown commands
+  gather_facts: true
+
+  tasks:
+    - name: Execute shutdown command
+      ansible.builtin.shell: "shutdown -h now"
+      when: ansible_facts['os_family'] in ["Debian", "RedHat"]
+
