@@ -1,0 +1,16 @@
+- name: Retry/Until Example
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Check if nginx is running
+      shell: systemctl is-active nginx
+      register: nginx_status
+      retries: 5
+      delay: 3
+      until: nginx_status.stdout == "active"
+      ignore_errors: yes
+
+    - debug:
+        msg: "Retry logic complete."
+

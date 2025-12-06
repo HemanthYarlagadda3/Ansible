@@ -1,0 +1,14 @@
+- name: Fail Module Example
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Check memory
+      shell: free -m | awk '/Mem:/ {print $7}'
+      register: mem
+
+    - name: Stop the playbook if memory < 1000 MB
+      fail:
+        msg: "Not enough memory! less than 1000 Mb"
+      when: mem.stdout | int < 1000
+

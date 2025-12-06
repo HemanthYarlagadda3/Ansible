@@ -1,0 +1,17 @@
+- name: Ignore Errors Example
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Trying to delete a non-existent file
+      command: rm /tmp/does_not_exist.txt
+      ignore_errors: yes
+
+    - name: Free Disk check
+      command: df -Th
+      register: disk_info
+
+    - name: Show disk space output
+      debug:
+        var: disk_info.stdout
+

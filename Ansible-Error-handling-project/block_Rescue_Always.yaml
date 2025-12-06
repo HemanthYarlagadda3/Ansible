@@ -1,0 +1,27 @@
+- name: Block & Rescue Example
+  hosts: all
+  become: yes
+
+  tasks:
+    - block:
+        - name: Task that will fail
+          command: /bin/false
+          ignore_errors : yes
+
+        - name: Task that will fail
+          command: /bin/false
+
+        - name: This will NOT run
+          debug:
+            msg: "You will not see this."
+
+      rescue:
+        - name: Catch failure and handle it
+          debug:
+            msg: "Error detected — running rescue steps."
+
+      always:
+        - name: Always
+          debug:
+            msg: "This runs no matter what."
+
